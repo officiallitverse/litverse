@@ -139,6 +139,7 @@
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
+            z-index: 1001;
         }
         
         .mobile-menu-btn:hover {
@@ -154,6 +155,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
         
         .hero::before {
@@ -170,7 +172,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             width: 100%;
             position: relative;
             z-index: 2;
@@ -183,6 +185,7 @@
             transform: translateY(20px);
             opacity: 0;
             transition: transform 1s ease, opacity 1s ease;
+            text-align: center;
         }
         
         .hero.visible .hero-text {
@@ -968,6 +971,7 @@
                 padding: 20px 0;
                 box-shadow: 0 10px 10px rgba(0,0,0,0.1);
                 backdrop-filter: blur(10px);
+                z-index: 1000;
             }
             
             nav ul.show {
@@ -978,6 +982,7 @@
                 margin: 0;
                 text-align: center;
                 padding: 15px 0;
+                width: 100%;
             }
             
             .mobile-menu-btn {
@@ -986,6 +991,7 @@
             
             .hero h1 {
                 font-size: 2.3rem;
+                padding-top: 100px;
             }
             
             .hero p {
@@ -995,6 +1001,49 @@
             .featured-card {
                 width: 100%;
                 max-width: 320px;
+                height : 80%;
+            }
+            
+            /* Mobile-specific card adjustments */
+            .books-grid, .authors-container, .magazine-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .author-info {
+                padding: 15px;
+                text-align: center;
+            }
+            
+            .author-img {
+                margin: 25px auto 15px;
+            }
+            
+            .topics-container {
+                justify-content: center;
+                gap: 12px;
+            }
+            
+            .topic-tag {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+            
+            .literature-content {
+                padding: 25px;
+            }
+            
+            .about-image {
+                height: 300px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
             }
         }
         
@@ -1027,6 +1076,27 @@
             .featured-card {
                 width: 100%;
             }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .book-img, .featured-img, .magazine-img {
+                height: 280px;
+            }
+            
+            .featured-img {
+                height: 350px !important;
+            }
+            
+            .hero {
+                padding-top: 70px;
+            }
         }
     </style>
 </head>
@@ -1036,7 +1106,6 @@
         <div class="container header-container">
             <a href="#" class="logo">
                 <img src="assets/images/logo2.png" alt="লিটভার্স লোগো" class="logo-img">
-                
             </a>
             <nav>
                 <ul id="navMenu">
@@ -1073,8 +1142,6 @@
                     </div>
                     <h3 class="featured-title">পথের পাঁচালী</h3>
                     <span class="featured-author">বিভূতিভূষণ বন্দ্যোপাধ্যায়</span>
-                    
-                    
                 </div>
             </div>
         </div>
@@ -1248,18 +1315,17 @@
                 <h2>আমাদের সম্পর্কে</h2>
             </div>
             <div class="about-content">
-    <div class="about-text">
-        <h2>লিটভার্সের গল্প</h2>
-        <p>লিটভার্স বাংলা সাহিত্যের প্রসার ও উন্নয়নে কাজ করে যাচ্ছে। আমরা বিশ্বাস করি সাহিত্য মানুষের মননশীলতা বৃদ্ধি করে এবং সমাজকে এগিয়ে নিয়ে যায়।</p>
-        <p>আমাদের লক্ষ্য হলো মানসম্পন্ন বাংলা সাহিত্য সর্বস্তরের পাঠকের কাছে পৌঁছে দেওয়া। লিটভার্সে প্রকাশিত বই, ম্যাগাজিন ও অনলাইন কন্টেন্টের মাধ্যমে আমরা নতুন প্রজন্মকে বাংলা সাহিত্যের সাথে পরিচিত করাতে চাই।</p>
-        <p>আমরা নতুন লেখকদের উৎসাহিত করি এবং তাদের রচনা প্রকাশের সুযোগ করে দিই। লিটভার্সের টিমে রয়েছেন সাহিত্যিক, সম্পাদক, গবেষক ও সাহিত্য অনুরাগী ব্যক্তিবর্গ।</p>
-        <p>আমাদের প্রকাশিত বইগুলো সারা দেশের বইমেলা ও অনলাইন স্টোরে পাওয়া যায়। এছাড়াও আমাদের ওয়েবসাইটে রয়েছে হাজার হাজার সাহিত্যকর্মের বিশাল সংগ্রহশালা।</p>
-    </div>
-    <div class="about-image">
-        <img src="assets/images/books.png" alt="" width="600" height="500">
-    </div>
-</div>
-
+                <div class="about-text">
+                    <h2>লিটভার্সের গল্প</h2>
+                    <p>লিটভার্স বাংলা সাহিত্যের প্রসার ও উন্নয়নে কাজ করে যাচ্ছে। আমরা বিশ্বাস করি সাহিত্য মানুষের মননশীলতা বৃদ্ধি করে এবং সমাজকে এগিয়ে নিয়ে যায়।</p>
+                    <p>আমাদের লক্ষ্য হলো মানসম্পন্ন বাংলা সাহিত্য সর্বস্তরের পাঠকের কাছে পৌঁছে দেওয়া। লিটভার্সে প্রকাশিত বই, ম্যাগাজিন ও অনলাইন কন্টেন্টের মাধ্যমে আমরা নতুন প্রজন্মকে বাংলা সাহিত্যের সাথে পরিচিত করাতে চাই।</p>
+                    <p>আমরা নতুন লেখকদের উৎসাহিত করি এবং তাদের রচনা প্রকাশের সুযোগ করে দিই। লিটভার্সের টিমে রয়েছেন সাহিত্যিক, সম্পাদক, গবেষক ও সাহিত্য অনুরাগী ব্যক্তিবর্গ।</p>
+                    <p>আমাদের প্রকাশিত বইগুলো সারা দেশের বইমেলা ও অনলাইন স্টোরে পাওয়া যায়। এছাড়াও আমাদের ওয়েবসাইটে রয়েছে হাজার হাজার সাহিত্যকর্মের বিশাল সংগ্রহশালা।</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/books.png" alt="" width="600" height="500">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1332,7 +1398,7 @@
                     <h3>নিউজলেটার</h3>
                     <p>সাহিত্যের নতুন প্রকাশনা ও আপডেট পেতে সাবস্ক্রাইব করুন</p>
                     <form>
-                        <input type="email" placeholder="">
+                        <input type="email" placeholder="আপনার ইমেইল">
                         <button type="submit" class="btn">সাবস্ক্রাইব</button>
                     </form>
                 </div>
@@ -1354,6 +1420,8 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Smooth scrolling for navigation links
@@ -1362,6 +1430,7 @@
                 e.preventDefault();
                 
                 navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
