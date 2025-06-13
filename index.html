@@ -1653,61 +1653,6 @@
   }
 }
 
-.calendar-card {
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.07);
-  padding: 6px 12px;
-  border-radius: 10px;
-  color: #fff;
-  backdrop-filter: blur(6px);
-  font-family: 'Noto Serif Bengali', serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  font-size: 0.8rem;
-  min-width: 110px;
-  max-width: 140px;
-}
-
-.calendar-card:hover {
-  transform: scale(1.04);
-  transition: transform 0.3s ease;
-}
-
-.calendar-header {
-  font-size: 0.85rem;
-  margin-bottom: 3px;
-  font-weight: 500;
-  color: #ffe8a3;
-}
-
-.calendar-weekday {
-  font-size: 0.75rem;
-  opacity: 0.85;
-}
-
-.calendar-date {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffdd57;
-  margin-top: 2px;
-}
-
-.pulse-animation {
-  animation: pulse 2.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.02);
-    opacity: 0.9;
-  }
-}
 
 /* Preloader covers full screen */
 .preloader {
@@ -1745,7 +1690,7 @@
 }
 
 .logo-text span {
-  color: #ffdd57;
+  color: #bd7b26;
 }
 
 
@@ -1793,6 +1738,13 @@
   }
 }
 
+.book-img img {
+  width: 260px;
+  height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
 
 
     </style>
@@ -1864,12 +1816,6 @@
     </div>
   </div>
 
-<!-- Stylish Calendar (Single Line) -->
-<div class="calendar-card animated fadeInUp" style="animation-delay: 1s;">
-  <div class="calendar-body pulse-animation" id="calendar-line">...</div>
-</div>
-
-
 </section>
 
 
@@ -1882,16 +1828,21 @@
             </div>
             <div class="books-grid">
                 <div class="book-card">
-                    <div class="book-img">📖</div>
-                    <div class="book-info">
-                        <h3>পথের পাঁচালী</h3>
-                        <span class="book-author">বিভূতিভূষণ বন্দ্যোপাধ্যায়</span>
-                        <p>বাংলা সাহিত্যের এক অবিস্মরণীয় উপন্যাস যা গ্রাম বাংলার জীবনচিত্র ফুটিয়ে তুলেছে।</p>
-                    </div>
-                </div>
+  <div class="book-img">
+    <img src="assets/images/book1.jpg" alt="পথের পাঁচালী বই" />
+  </div>
+  <div class="book-info">
+    <h3>পথের পাঁচালী</h3>
+    <span class="book-author">বিভূতিভূষণ বন্দ্যোপাধ্যায়</span>
+    <p>বাংলা সাহিত্যের এক অবিস্মরণীয় উপন্যাস যা গ্রাম বাংলার জীবনচিত্র ফুটিয়ে তুলেছে।</p>
+  </div>
+</div>
+
                 
                 <div class="book-card">
-                    <div class="book-img">📖</div>
+                      <div class="book-img">
+    <img src="assets/images/book2.jpg" alt="পথের পাঁচালী বই" />
+  </div>
                     <div class="book-info">
                         <h3>দেবদাস</h3>
                         <span class="book-author">শরৎচন্দ্র চট্টোপাধ্যায়</span>
@@ -1900,7 +1851,9 @@
                 </div>
                 
                 <div class="book-card">
-                    <div class="book-img">📖</div>
+                    <div class="book-img">
+    <img src="assets/images/book3.jpg" alt="পথের পাঁচালী বই" />
+  </div>
                     <div class="book-info">
                         <h3>পদ্মা নদীর মাঝি</h3>
                         <span class="book-author">মানিক বন্দ্যোপাধ্যায়</span>
@@ -1909,7 +1862,19 @@
                 </div>
                 
                 <div class="book-card">
-                    <div class="book-img">📖</div>
+                    <div class="book-img">
+    <img src="assets/images/book4.jpg" alt="পথের পাঁচালী বই" />
+  </div>
+                    <div class="book-info">
+                        <h3>হাজার বছর ধরে</h3>
+                        <span class="book-author">জহির রায়হান</span>
+                        <p>বাংলাদেশের গ্রামীণ সমাজ ও নারীর জীবনের এক মর্মস্পর্শী উপাখ্যান।</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-img">
+    <img src="assets/images/hero-banner.jpg" alt="পথের পাঁচালী বই" />
+  </div>
                     <div class="book-info">
                         <h3>হাজার বছর ধরে</h3>
                         <span class="book-author">জহির রায়হান</span>
@@ -2146,48 +2111,6 @@
     }, 3000); // 3 seconds
   });
 </script>
-
-    <script>
-  const weekdays = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
-  const banglaMonths = ['বৈশাখ', 'জ্যৈষ্ঠ', 'আষাঢ়', 'শ্রাবণ', 'ভাদ্র', 'আশ্বিন', 'কার্তিক', 'অগ্রহায়ণ', 'পৌষ', 'মাঘ', 'ফাল্গুন', 'চৈত্র'];
-
-  const now = new Date();
-  const weekday = weekdays[now.getDay()];
-
-  function toBanglaDigit(number) {
-    const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-    return number.toString().split('').map(d => banglaDigits[d] || d).join('');
-  }
-
-  function getBanglaDate(gDate) {
-    const startOfBanglaYear = new Date(gDate.getFullYear(), 3, 14); // April 14
-    const msInDay = 24 * 60 * 60 * 1000;
-    const diffDays = Math.floor((gDate - startOfBanglaYear) / msInDay);
-
-    let banglaYear = gDate.getFullYear() - 593;
-    if (gDate < startOfBanglaYear) {
-      banglaYear -= 1;
-    }
-
-    const monthLengths = [31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29, 30];
-    let dayOfYear = (diffDays + 365) % 365;
-    let month = 0;
-    while (dayOfYear >= monthLengths[month]) {
-      dayOfYear -= monthLengths[month];
-      month++;
-    }
-
-    const banglaMonth = banglaMonths[month];
-    const banglaDay = dayOfYear + 1;
-
-    return `${toBanglaDigit(banglaDay)} ${banglaMonth} ${toBanglaDigit(banglaYear)}`;
-  }
-
-  document.getElementById("calendar-line").textContent = `${weekday}, ${getBanglaDate(now)}`;
-</script>
-
-
-
 
     <script>
         // Preloader functionality
