@@ -1302,6 +1302,209 @@
             }
         }
         
+        /* Hero Section Enhancements */
+        .animated-background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: floatShape 12s ease-in-out infinite alternate;
+            filter: blur(40px);
+        }
+
+        .shape1 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 60%;
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        .shape3 {
+            width: 250px;
+            height: 250px;
+            background: var(--primary-light);
+            top: 30%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatShape {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            100% { transform: translateY(-30px) translateX(30px) rotate(20deg); }
+        }
+
+        .animated {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .hero.visible .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        .zoomIn {
+            animation: zoomIn 1s ease forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animated-text {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 5s ease infinite;
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        /* Glowing Text Animation */
+        .animated-glow {
+        font-size: 3.5rem;
+        background: linear-gradient(270deg, var(--primary), var(--accent), var(--primary-light));
+        background-size: 600% 600%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glowText 6s ease infinite;
+        }
+
+        @keyframes glowText {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Bubble Background */
+        .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        }
+
+        .bubble {
+        position: absolute;
+        bottom: -100px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        animation: bubbleRise 20s infinite ease-in-out;
+        filter: blur(5px);
+        animation-delay: calc(var(--i, 0) * 1s);
+        }
+
+        .bubble:nth-child(1) { left: 10%; --i: 1; }
+        .bubble:nth-child(2) { left: 50%; --i: 2; }
+        .bubble:nth-child(3) { left: 80%; --i: 3; }
+
+        @keyframes bubbleRise {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 0.3;
+        }
+        50% {
+            transform: translateY(-500px) scale(1.5);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translateY(-1000px) scale(1);
+            opacity: 0;
+        }
+        }
+
+        /* 3D Card Hover Tilt Effect */
+        .tilt-card {
+        perspective: 1000px;
+        }
+
+        .tilt-card .featured-card {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+        }
+
+        .tilt-card:hover .featured-card {
+        transform: rotateY(8deg) rotateX(5deg);
+        }
+
+        /* Staggered fade-in animation */
+        .animated {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Optional: smooth gradient waves behind shapes */
+        .animated-background-shapes .shape {
+        background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
+        filter: blur(60px);
+        }
+
+
         @media (max-width: 576px) {
             .footer-content {
                 grid-template-columns: 1fr;
@@ -1356,59 +1559,69 @@
             }
         }
     </style>
-</head>
-<body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-logo">লিটভার্স</div>
-        
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header -->
-     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="assets/images/logo2_transparent.png" alt="লিটভার্স লোগো" class="logo-img">
-            </a>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#books">বই</a></li>
-                    <li><a href="#authors">লেখক</a></li>
-                    <li><a href="#topics">বিষয়</a></li>
-                    <li><a href="#literature">সাহিত্য</a></li>
-                    <li><a href="#magazine">ম্যাগাজিন</a></li>
-                    <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                    <li><a href="#contact">যোগাযোগ</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+    </head>
+    <body>
+        <!-- Preloader -->
+        <div class="preloader" id="preloader">
+            <div class="preloader-logo">লিটভার্স</div>
+            
+            <div class="loader"></div>
         </div>
-    </header>
 
+        <!-- Header -->
+        <header>
+            <div class="container header-container">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo2_transparent.png" alt="লিটভার্স লোগো" class="logo-img">
+                </a>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#books">বই</a></li>
+                        <li><a href="#authors">লেখক</a></li>
+                        <li><a href="#topics">বিষয়</a></li>
+                        <li><a href="#literature">সাহিত্য</a></li>
+                        <li><a href="#magazine">ম্যাগাজিন</a></li>
+                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#contact">যোগাযোগ</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+    
+    <!-- Hero Section -->
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="particles" id="particles"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="logo-text">লিট<span>ভার্স</span></div>
-                <h1>বাংলা সাহিত্যের এক অনন্য অভিযাত্রা</h1>
-                <p>লিটভার্সে স্বাগতম - যেখানে শব্দের সৌন্দর্য ও গল্পের জাদু একাকার</p>
-                <a href="#books" class="btn">আমাদের বইগুলো দেখুন</a>
-            </div>
-            
-            <div class="featured-book">
-                <div class="featured-card">
-                    <div class="featured-img">
-                        <img src="assets/images/hero-banner.jpg" alt="বাংলা সাহিত্যের বিশেষ বই">
-                    </div>
-                    <h3 class="featured-title">এ টেল অভ টু সিটিজ</h3>
-                </div>
-            </div>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container hero-content">
+        <div class="hero-text animated fadeInUp" style="animation-delay: 0.2s;">
+        <div class="logo-text">লিট<span>ভার্স</span></div>
+        <h1 class="animated-glow">বাংলা সাহিত্যের এক অনন্য অভিযাত্রা</h1>
+        <p style="animation-delay: 0.4s;">লিটভার্সে স্বাগতম - যেখানে শব্দের সৌন্দর্য ও গল্পের জাদু একাকার</p>
+        <a href="#books" class="btn" style="animation-delay: 0.6s;">আমাদের বইগুলো দেখুন</a>
         </div>
+
+        <div class="featured-book animated zoomIn tilt-card" style="animation-delay: 0.8s;">
+        <div class="featured-card">
+            <div class="featured-img">
+            <img src="assets/images/hero-banner.jpg" alt="বাংলা সাহিত্যের বিশেষ বই">
+            </div>
+            <h3 class="featured-title">এ টেল অভ টু সিটিজ</h3>
+        </div>
+        </div>
+    </div>
     </section>
+
+
 
     <!-- Books Section -->
     <section id="books">
